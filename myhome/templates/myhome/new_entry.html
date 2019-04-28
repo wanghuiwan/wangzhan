@@ -1,0 +1,17 @@
+{% extends "myhome/base.html" %}
+{% block content %}
+    <p><a href="{% url 'myhome:topic' topic.id %}">{{ topic }}</a></p>
+
+    <p>Add a new entry:</p>
+        <form action="{% url 'myhome:new_entry' topic.id %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+            <button name="submit">add Entry</button>
+        </form>
+
+
+
+
+
+
+{% endblock content %}

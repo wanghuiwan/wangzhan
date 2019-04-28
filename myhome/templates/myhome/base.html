@@ -1,7 +1,15 @@
 <p>
-    <a href="{% url 'myhome:index' %}">my home</a>-
-    <a href="{% url 'myhome:topics' %}">topics</a>
+    <a href="{% url 'myhome:index' %}">my home</a> -
+    <a href="{% url 'myhome:topics' %}">topics</a> -
+    {% if user.is_authenticated %}
+        Hello  {{ user.username }},
+        <a href="{% url 'users:logout' %}">log out</a>
+    {% else %}
+        <a href="{% url 'users:register' %}">register</a>
+        <a href="{% url 'users:login' %}">log in</a>
+    {% endif %}
 {#    <a href="http://www.baidu.com">baidu</a>#}
 </p>
+{#<body background="http://222.186.12.239:10010/zmcy_171009/001.jpg">#}
 {% block content %}
 {% endblock content %}

@@ -18,5 +18,6 @@ from django.conf.urls import include,url
 from myhome import views
 urlpatterns = [
     url(r'admin/', admin.site.urls),
-    url(r'',include('myhome.urls',namespace='myhome')),
+    url(r'users/', include('users.urls',namespace='users')),
+    url(r'', include('myhome.urls', namespace='myhome')),
 ]
